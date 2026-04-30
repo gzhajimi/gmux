@@ -71,12 +71,11 @@ gmux 唯一与网络相关的调用全部通过 Windows 自带的 `Windows.Servi
 
 ## Microsoft Store 权限申请
 
-MSIX 清单中只声明了以下两项能力：
+MSIX 清单中仅声明一项能力：
 
 - `runFullTrust` —— gmux 是桌面应用，需要使用 Win32 全局热键、窗口枚举和托盘图标
-- `internetClient` —— 仅供 Microsoft Store 授权接口连通 Store 服务使用
 
-不申请摄像头、麦克风、位置、联系人、文件系统代理等任何敏感能力。
+不申请 `internetClient`、摄像头、麦克风、位置、联系人、文件系统代理等任何敏感能力。`Windows.Services.Store` 授权调用由 Windows 系统服务路由，不需要应用本身具备网络能力。
 
 ## 第三方服务
 

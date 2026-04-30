@@ -71,12 +71,11 @@ This zip is **not uploaded automatically** anywhere. It is created only when you
 
 ## Microsoft Store capabilities
 
-The MSIX manifest declares only:
+The MSIX manifest declares only one capability:
 
 - `runFullTrust` — required because gmux is a desktop app that uses Win32 hotkeys, window enumeration, and a tray icon
-- `internetClient` — used solely so the Microsoft Store licensing API can reach the Store service
 
-No camera, microphone, location, contacts, file-system broker, or other sensitive capabilities are requested.
+No `internetClient`, camera, microphone, location, contacts, file-system broker, or other sensitive capabilities are requested. The `Windows.Services.Store` licensing calls are routed by the Windows system service and do not require the app itself to hold network capability.
 
 ## Third parties
 
