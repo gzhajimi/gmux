@@ -9,7 +9,7 @@ title: gmux — declarative workspace switcher
 **A declarative workspace switcher for Windows.**
 Describe multi-monitor layouts in TOML. Press a hotkey. Snap.
 
-### How it works
+## How it works
 
 1. **Describe** your layouts in a TOML file — windows, monitors, regions.
 2. **Press `Ctrl+M` + a key** — your chord (`1`, `2`, `q`, …).
