@@ -1,2 +1,5 @@
 theme: minima
 title: gmux
+
+header_pages:
+  - index.md
