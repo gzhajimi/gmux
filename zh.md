@@ -2,16 +2,16 @@
 title: gmux — 声明式工作场景切换器
 ---
 
-[English](index.md) · 中文 · [GitHub](https://github.com/gzhajimi/gmux)
+中文 · [English](index.md) · [日本語](ja.md) · [GitHub](https://github.com/gzhajimi/gmux)
 
 # gmux
 
 **Windows 上的声明式工作场景切换器。**
-把多显示器布局写进 TOML，按一个热键，瞬间就位。
+在图形设置界面里描述好你的多显示器布局，按一个热键，瞬间就位。
 
 ## 工作流程
 
-1. **描述** —— 把你的布局写进 TOML 文件：窗口、显示器、区域。
+1. **描述** —— 打开 gmux 设置界面，点选你的布局：显示器、应用、区域。全程图形化，不用手写配置文件。
 2. **按 `Ctrl+M` + 一个键** —— 你的 chord（`1`、`2`、`q` …）。
 3. **窗口就位** —— 已经开着的应用直接**复用**（移动到新位置），不关、不重启。
 
@@ -27,24 +27,13 @@ title: gmux — 声明式工作场景切换器
 
 ## 30 秒看懂
 
-一个把记事本铺满主屏的 binding —— 下一次按同样的键，窗口直接复用，不重启。
+在设置界面里点几下，就配好一个把记事本铺满主屏的 binding：选显示器、挑布局、把应用放进区域。
+
+按 `Ctrl+M` 然后 `1` → 记事本满屏到主屏。再按一次 → 复用同一个窗口（不重启）。
+
+**配置可托管、可同步。** 你在界面里配好的一切，gmux 会存成一份声明式 TOML。你不用手写它，但它是一份纯文本配置 —— 可以备份、丢进 git / Dropbox / OneDrive 跨机器同步，换机后直接复用：
 
 ```toml
-[hotkey]
-prefix = "Ctrl+M"
-
-[apps.notepad]
-launch.exe = "C:/Windows/System32/notepad.exe"
-match.hard.process = "notepad.exe"
-
-[[display]]
-id = "__PRIMARY__"
-name = "main"
-orientation = "landscape"
-
-[display_profiles.solo]
-display = [{ name = "main" }]
-
 [bindings.1]
 description = "记事本满屏"
 [[bindings.1.variants]]
@@ -53,11 +42,10 @@ categories = { main = "full" }
 regions = [{ on = "main", slot = "maximize", app = "notepad" }]
 ```
 
-按 `Ctrl+M` 然后 `1` → 记事本满屏到主屏。再按一次 → 复用同一个窗口（不重启）。
-
 ## 为什么是 gmux
 
-- **声明式** —— 写「我要什么」，引擎处理「怎么做」。
+- **图形配置** —— 显示器检测、布局、应用、快捷键全在设置界面里点选，无需手写配置文件。
+- **声明式** —— 你描述「我要什么」，引擎处理「怎么做」。
 - **非破坏性** —— 已开应用是被移动，不是被重启。
 - **Prefix 键** —— 腾出全部全局快捷键空间。
 - **极致轻量** —— < 10 MB 安装包，< 50 MB 运行内存。

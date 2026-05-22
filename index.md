@@ -2,16 +2,16 @@
 title: gmux — declarative workspace switcher
 ---
 
-[中文](zh.md) · English · [GitHub](https://github.com/gzhajimi/gmux)
+[中文](zh.md) · English · [日本語](ja.md) · [GitHub](https://github.com/gzhajimi/gmux)
 
 # gmux
 
 **A declarative workspace switcher for Windows.**
-Describe multi-monitor layouts in TOML. Press a hotkey. Snap.
+Describe your multi-monitor layouts in the settings UI. Press a hotkey. Snap.
 
 ## How it works
 
-1. **Describe** your layouts in a TOML file — windows, monitors, regions.
+1. **Describe** your layouts in gmux's settings UI — monitors, apps, regions. All graphical, no config file to hand-edit.
 2. **Press `Ctrl+M` + a key** — your chord (`1`, `2`, `q`, …).
 3. **Windows snap into place** — already-open apps are *moved*, not relaunched.
 
@@ -25,26 +25,15 @@ A **macOS** version is in preparation. [Star the repo on GitHub](https://github.
 
 **System requirements:** Windows 10 build 17763 (1809) or later, 64-bit.
 
-## See it in TOML
+## See it in 30 seconds
 
-A binding that fills your main display with Notepad — and reuses the same window the next time you press it.
+A few clicks in the settings UI configure a binding that fills your main display with Notepad: pick the monitor, choose a layout, drop an app into a region.
+
+`Ctrl+M` then `1` → Notepad fills your main monitor. Press it again → the same window is moved, not relaunched.
+
+**Your config is portable.** Everything you set up in the UI is saved as a declarative TOML file. You never have to write it by hand, but it's plain text — back it up, sync it across machines with git / Dropbox / OneDrive, and reuse it on a new PC:
 
 ```toml
-[hotkey]
-prefix = "Ctrl+M"
-
-[apps.notepad]
-launch.exe = "C:/Windows/System32/notepad.exe"
-match.hard.process = "notepad.exe"
-
-[[display]]
-id = "__PRIMARY__"
-name = "main"
-orientation = "landscape"
-
-[display_profiles.solo]
-display = [{ name = "main" }]
-
 [bindings.1]
 description = "Notepad fullscreen"
 [[bindings.1.variants]]
@@ -53,10 +42,9 @@ categories = { main = "full" }
 regions = [{ on = "main", slot = "maximize", app = "notepad" }]
 ```
 
-`Ctrl+M` then `1` → Notepad fills your main monitor. Press it again → the same window is moved, not relaunched.
-
 ## Why gmux
 
+- **Graphical setup** — monitors, layouts, apps, and hotkeys are all configured in the settings UI; no config file to hand-write.
 - **Declarative** — describe the destination, not the steps.
 - **Non-destructive** — running apps move, they don't relaunch.
 - **Prefix-key** — leaves the global hotkey namespace untouched.

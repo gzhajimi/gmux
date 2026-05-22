@@ -4,9 +4,9 @@ title: gmux 常见问题
 
 # gmux 常见问题
 
-> **语言** · **中文** · [English](faq-en.md)
+> **语言** · **中文** · [English](faq-en.md) · [日本語](faq-ja.md)
 
-← [回到首页](index.md)
+← [回到首页](zh.md)
 
 ---
 
@@ -28,22 +28,15 @@ EDID 序列号自动区分。`%APPDATA%\gmux\config.toml` 里 `[[display]]` 的 
 
 ### 我的应用 gmux 找不到窗口怎么办？
 
-在 `[apps.<key>.match]` 下显式写匹配规则：
+去 **设置 → 应用匹配** 页修复，不用手写配置：
 
-```toml
-[apps.terminal]
-launch.exe = "C:/Users/<you>/AppData/Local/Microsoft/WindowsApps/wt.exe"
-match.hard.class = "CASCADIA_HOSTING_WINDOW_CLASS"   # Windows Terminal 的窗口类名
+1. 托盘 → **设置** → 侧边栏 **应用匹配**。
+2. 在列表里找到这个应用，点 **「重新匹配」**。gmux 会自动启动并采样它的窗口，提取稳定的匹配指纹（进程 / 窗口类 / 标题等）并写回配置，无需你提前手动打开应用。
+3. 如果它抓错了窗口、或采样不到稳定指纹，会弹出 **「选择窗口」**：从正在运行的窗口列表里手动指定哪一个才是这个应用，选中确认即可（这一步需要目标窗口已经开着）。
 
-[[apps.terminal.match.soft]]
-kind = "title_contains"     # 向某个具体 tab 倾斜
-pattern = "PowerShell"
-weight = 50
-```
+页面上每个应用会显示当前状态（「正在运行 · 认出 N 个窗口」/「当前未运行」）和「认窗口靠」哪些信号，平时不用管，只在摆放时抓错或找不到窗口才需要来点一下「重新匹配」。
 
-`match.hard.*` 字段（`process` / `process_path` / `class` / `aumid`）是精确硬条件；`[[apps.<key>.match.soft]]` 是带权重的软提示（`kind` = `title_contains` / `title_regex` / `class_prefix` / `process_prefix`，`weight` 取值 −100…100）。
-
-托盘 → 设置 → 应用 → 「+ 添加应用」会引导你抓正在跑的窗口元数据，省去手写。
+> **终端类应用要注意**：PowerShell / cmd / WSL 如果跑在 Windows Terminal 里，窗口实际归属 `WindowsTerminal.exe`。「选择窗口」弹窗里搜 `terminal` 或留空浏览，按每行底下显示的进程名挑对应的那一个。
 
 ### 配置能跨机器同步吗？
 

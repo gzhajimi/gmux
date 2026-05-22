@@ -4,7 +4,7 @@ title: gmux FAQ
 
 # gmux FAQ
 
-> **Language** · [中文](faq-zh.md) · **English**
+> **Language** · [中文](faq-zh.md) · **English** · [日本語](faq-ja.md)
 
 ← [Back to homepage](index.md)
 
@@ -28,22 +28,15 @@ Conceptual detail: [User guide → Display](settings-help-en.md#1-display).
 
 ### gmux can't find my app's window — what now?
 
-Add explicit match rules under `[apps.<key>.match]`:
+Fix it on the **Settings → App Match** page — no hand-editing required:
 
-```toml
-[apps.terminal]
-launch.exe = "C:/Users/<you>/AppData/Local/Microsoft/WindowsApps/wt.exe"
-match.hard.class = "CASCADIA_HOSTING_WINDOW_CLASS"   # Windows Terminal's window class
+1. Tray → **Settings** → sidebar **App Match**.
+2. Find the app in the list and click **"Re-match"**. gmux launches and samples its window automatically, extracts a stable match fingerprint (process / window class / title, …), and writes it back to the config — you don't need to open the app yourself first.
+3. If it grabs the wrong window, or can't extract a stable fingerprint, a **"Pick a window"** dialog appears: choose which running window is this app and confirm (this step needs the target window already open).
 
-[[apps.terminal.match.soft]]
-kind = "title_contains"     # nudge toward a specific tab
-pattern = "PowerShell"
-weight = 50
-```
+Each app on the page shows its current status ("Running · N windows matched" / "Not running") and what it "Matches by". You normally never touch it — only when a placement grabs the wrong window or finds none do you click "Re-match".
 
-`match.hard.*` fields (`process` / `process_path` / `class` / `aumid`) are exact requirements; `[[apps.<key>.match.soft]]` entries are scored hints (`kind` = `title_contains` / `title_regex` / `class_prefix` / `process_prefix`, `weight` in −100…100).
-
-The GUI's "Add app" wizard captures live window metadata so you don't have to write it by hand.
+> **Terminal apps:** PowerShell / cmd / WSL running inside Windows Terminal actually belong to `WindowsTerminal.exe`. In the "Pick a window" dialog, search `terminal` or leave it blank to browse, then pick the right row by the process name shown under each entry.
 
 ### Can I sync my config across machines?
 
