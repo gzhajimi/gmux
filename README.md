@@ -41,4 +41,4 @@ Bug reports and feature requests for **the app itself** also go to [Issues](http
 
 ## License
 
-The site content in this repository is released under the [MIT License](LICENSE) (defaults to MIT if no `LICENSE` file is present). The gmux binary is distributed under its respective Microsoft Store and GitHub Release terms.
+The site content in this repository is released under the [MIT License](LICENSE) (defaults to MIT if no `LICENSE` file is present). The gmux binary is distributed under its Microsoft Store terms.

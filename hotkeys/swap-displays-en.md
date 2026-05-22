@@ -10,18 +10,19 @@ title: prefix+m — Swap displays
 
 `prefix+m` **shifts the entire current layout** to another display: every region originally on display A (windows, categories, apps and all) moves to display B, and vice versa.
 
-> Default chord: `m` · Config key: `swap_displays` · Change in Settings → Hotkeys → Region actions
+> Default chord: `m` · Config key: `swap_displays` · Change in Settings → Hotkeys → Region operations
 
 ---
 
-## Three usage patterns
+## Four usage patterns
 
-After `prefix+m` enters swap mode, what you press next determines which of three branches you take:
+After `prefix+m` enters swap mode, what you press next determines which of four branches you take:
 
 | Next key | Branch | Use case |
 |---|---|---|
 | Press `m` again | **Quick swap (mm)** | Swap the two displays configured as quick_swap in the display profile; great for two displays you frequently flip between |
 | Digit `N1` then digit `N2` | **Explicit swap (m+digit+digit)** | Swap two displays by their explicit display numbers; needed when you have three or more displays |
+| Digit `N` then `Enter` | **Swap with default (m+digit+Enter)** | Swap the chosen display with the default display; only one number to remember |
 | `Esc` / any other key / nothing | **Cancel** | Close the OSD without swapping |
 
 The "display-number OSD" (each display shows its number + resolution in the center) only appears **120 ms** after entering swap mode. This delay means users hitting `mm` quickly **never see the OSD flicker**.
@@ -71,7 +72,33 @@ After the first digit, there's no separate timeout — the entire swap mode shar
 
 ---
 
-## Pattern 3: cancel
+## Pattern 3: swap with the default display (`prefix+m N Enter`)
+
+Press `prefix+m`, wait 120 ms for the display-number OSD, press a single digit `N`, then press `Enter`. Display `N` is swapped with the **default display** — no second number to type.
+
+```
+press prefix
+press m              ← enters swap mode
+wait 120 ms          ← OSD appears, each display shows its number
+press 1              ← the display to move
+press Enter          ← swap display 1 with the default display
+```
+
+### Which display is the "default display"?
+
+Resolved from your display profiles: a profile that ticks "use the first display as default" (`first_as_default`) **and** exactly matches the currently connected displays nominates its first display. Otherwise the default is display 0.
+
+### Bare Enter
+
+Pressing `Enter` before any digit cancels swap mode (same as `Esc`); the key is **not** passed through to the focused window.
+
+### Rejection conditions
+
+Same as explicit swap, all logged with no extra toast: `N` out of range, `N` is already the default display (source == destination), no layout has been triggered, or orientation mismatch. Shares the one overall `cycle_timeout_ms` (3 s) from `prefix+m`.
+
+---
+
+## Pattern 4: cancel
 
 Ways to cancel after entering swap mode:
 

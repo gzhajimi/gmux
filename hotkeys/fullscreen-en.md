@@ -10,7 +10,7 @@ title: prefix+z — Region temporary fullscreen
 
 `prefix+z` enlarges the selected region's window to fill the **entire display's work area** (avoiding the taskbar). Press it again to restore.
 
-> Default chord: `z` · Config key: `fullscreen` · Change in Settings → Hotkeys → Region actions
+> Default chord: `z` · Config key: `fullscreen` · Change in Settings → Hotkeys → Region operations
 
 ---
 

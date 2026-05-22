@@ -30,7 +30,7 @@ Pressing prefix puts the engine into **wait-for-chord** state:
 2. This wait window is **2000 ms** by default (change at Hotkeys → prefix key → PREFIX timeout).
 3. The next key received during the wait determines what happens next:
    - It's the chord of a built-in action (defaults `n/p/l/r/f/q/z/m/space/w/g/c/x/?`) → fire that action.
-   - It's the key of a binding (`0-9` or `a-z`) → fire that binding.
+   - It's the key of a binding (`0-9`, `a-z`, `F1`–`F24`, a named key, or OEM punctuation) → fire that binding.
    - It's `Esc` → silent cancel.
    - It's any other key → cancel the wait and **pass through** that key to the focused window (it isn't swallowed).
    - No key pressed before timeout → silent cancel.
@@ -42,8 +42,7 @@ Pressing prefix puts the engine into **wait-for-chord** state:
 
 Each binding's trigger key is shown in the left column of the Layouts page as `⌃M·1`, `⌃M·a`, etc. (the prefix portion reflects the current prefix).
 
-- `prefix` `<0-9>` → fire a digit-key binding
-- `prefix` `<a-z>` → fire a letter-key binding
+- `prefix` `<binding key>` → fire that binding. Valid binding keys: digits `0-9`, letters `a-z`, function keys `F1`–`F24`, named keys (`Space`, `Enter`, `Tab`, arrows, `Home`/`End`, `PageUp`/`PageDown`, `Insert`, `Delete`, `Backspace`), and OEM punctuation (`;` `/` `` ` `` `[` `\` `]` `'` `,` `.` `-` `=`) — 85 keys in all.
 
 After you press it:
 

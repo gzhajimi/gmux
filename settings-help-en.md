@@ -89,7 +89,7 @@ Page actions:
 
 Corresponding settings page: **Layouts** (each item in the left column is a binding).
 
-A "Binding" = a **hotkey** + description + a set of variants. The binding's key is one of the digits `0-9` or letters `a-z`. Pressing `prefix + <key>` fires it (the default prefix is `Ctrl+M`, so it's something like `Ctrl+M 1` / `Ctrl+M a`).
+A "Binding" = a **hotkey** + description + a set of variants. The binding's key is any single key from the chord picker — a digit `0-9`, a letter `a-z`, a function key `F1`–`F24`, a named key (`Space`, `Enter`, `Tab`, arrows, `Home`/`End`, …), or OEM punctuation (`;` `/` `[` `]` …); 85 in all. (Digits and letters show by default; F-keys, named keys, and punctuation live in collapsed sections of the picker.) Pressing `prefix + <key>` fires it (the default prefix is `Ctrl+M`, so it's something like `Ctrl+M 1` / `Ctrl+M a`).
 
 Each binding contains:
 
@@ -156,7 +156,7 @@ Free-tier limit: each variant can only involve one display; multi-display varian
 
 ## 2. System preset hotkeys
 
-Corresponding settings page: **Hotkeys** (the left column has three sections: "prefix key", "Action hotkeys", "Advanced").
+Corresponding settings page: **Hotkeys** (the left column has three sections: "prefix key", "Action chords", "Advanced").
 
 gmux is a **prefix + chord** system: press prefix first to enter "wait for second key" state, then press a key to fire an action. Prefix defaults to `Ctrl+M`; every built-in action requires prefix first.
 
@@ -184,13 +184,13 @@ After pressing prefix, type the binding key to fire the corresponding layout:
 
 | Key sequence | Effect |
 |---|---|
-| `prefix` `<0-9 / a-z>` | Fires `bindings.<key>` — the engine picks a matching variant and places windows accordingly |
+| `prefix` `<binding key>` | Fires `bindings.<key>` (`0-9`, `a-z`, `F1`–`F24`, a named key, or OEM punctuation) — the engine picks a matching variant and places windows accordingly |
 
 A binding's current key shows in the left column of the Layouts page (e.g. `⌃M·1` means Ctrl+M then 1). For details on binding-trigger semantics (including prefix-mode cancellation) see [hotkeys/prefix-en.md](hotkeys/prefix-en.md).
 
 ### 2.3 Layout navigation actions
 
-Page section: "Hotkeys → Action hotkeys → Layout navigation".
+Page section: "Hotkeys → Action chords → Layout navigation".
 
 | Action | Default key | Full sequence | Effect |
 |---|---|---|---|
@@ -201,9 +201,9 @@ Page section: "Hotkeys → Action hotkeys → Layout navigation".
 | [`show_desktop`](hotkeys/show-desktop-en.md) | `space` | `Ctrl+M Space` | Show desktop / restore (system-level Win+D equivalent, but routed through prefix) |
 | [`list_layouts`](hotkeys/list-layouts-en.md) | `w` | `Ctrl+M w` | OSD lists every layout; pick with hjkl, Enter to confirm, Esc to cancel |
 
-### 2.4 Region action hotkeys
+### 2.4 Region operation hotkeys
 
-Page section: "Hotkeys → Action hotkeys → Region actions".
+Page section: "Hotkeys → Action chords → Region operations".
 
 A "region" = one slot of one display in the current variant. For example, the top-left of a four-quadrant layout, or the left half of a left/right split. These actions all need a region selected first, or the action specifies a region.
 

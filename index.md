@@ -17,12 +17,11 @@ Describe multi-monitor layouts in TOML. Press a hotkey. Snap.
 
 ## Get gmux
 
-**⭐ [Star the repo on GitHub](https://github.com/gzhajimi/gmux) to be notified when the first release ships.**
+**gmux is available now on the Microsoft Store** — automatic updates, the 30-day Premium trial, no account required.
 
-| Channel | Best for | Status |
-|---|---|---|
-| **Microsoft Store** | Auto-update, premium features, regular users | Pending review |
-| **GitHub Release** (NSIS installer) | China, enterprise networks, git-tracked configs | First release pending |
+[**Get gmux on the Microsoft Store →**](https://apps.microsoft.com/detail/9MWP3799MCLH)
+
+A **macOS** version is in preparation. [Star the repo on GitHub](https://github.com/gzhajimi/gmux) to hear when it ships.
 
 **System requirements:** Windows 10 build 17763 (1809) or later, 64-bit.
 
@@ -35,7 +34,8 @@ A binding that fills your main display with Notepad — and reuses the same wind
 prefix = "Ctrl+M"
 
 [apps.notepad]
-exe = "C:/Windows/System32/notepad.exe"
+launch.exe = "C:/Windows/System32/notepad.exe"
+match.hard.process = "notepad.exe"
 
 [[display]]
 id = "__PRIMARY__"
@@ -50,7 +50,7 @@ description = "Notepad fullscreen"
 [[bindings.1.variants]]
 profile = "solo"
 categories = { main = "full" }
-regions = [{ on = "main", slot = "full", app = "notepad" }]
+regions = [{ on = "main", slot = "maximize", app = "notepad" }]
 ```
 
 `Ctrl+M` then `1` → Notepad fills your main monitor. Press it again → the same window is moved, not relaunched.
@@ -85,4 +85,4 @@ Bug reports, feature requests, and config questions all go through [GitHub Issue
 
 ---
 
-The gmux binary is distributed under its respective Microsoft Store / GitHub Release terms. This documentation site is published under the [MIT License](LICENSE).
+The gmux binary is distributed under its Microsoft Store terms. This documentation site is published under the [MIT License](LICENSE).

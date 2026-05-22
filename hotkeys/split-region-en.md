@@ -10,7 +10,7 @@ title: prefix+c — Add an app to a region
 
 `prefix+c` **splits the selected region in two** so you can add an app next to the original. The original app keeps one half; the new app takes the other.
 
-> Default chord: `c` · Config key: `split_region` · Change in Settings → Hotkeys → Region actions
+> Default chord: `c` · Config key: `split_region` · Change in Settings → Hotkeys → Region operations
 
 ---
 
@@ -88,7 +88,7 @@ Under any of the following, `prefix+c` does not show the popover and is silently
 
 ## After the popover closes
 
-- Picked a digit / pressed Enter → split executes immediately: the original region is split in half along its short edge; the original app stays, the new app moves into the new half.
+- Picked a digit / pressed Enter → split executes immediately: the original region is split in half along its longer dimension (a wide region splits into left + right halves; a tall region splits into top + bottom halves); the original app stays, the new app moves into the new half.
 - Cancel / timeout → no region is modified.
 - After a successful split, selected_region is unchanged (still points at the original region's number). The new region's number is allocated by the engine and shows up in the next `prefix+q` OSD.
 

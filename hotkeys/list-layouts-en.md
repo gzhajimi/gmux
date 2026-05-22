@@ -37,6 +37,7 @@ After the OSD appears, use vim-style hjkl to move within the grid:
 | `Space` | Toggle the detail view (see below) |
 | `Enter` | Fire the layout under the cursor |
 | `Esc` | Cancel, close the OSD |
+| `/` | Enter search mode (filter the list by typing) |
 | **Mouse left/middle/right click** anywhere on screen | Cancel, close the OSD (the click is **not** swallowed; it still reaches the window underneath) |
 
 Each press of hjkl or Space **resets the 30-second countdown**; Enter or Esc closes immediately.
@@ -52,6 +53,17 @@ By default each layout thumbnail shows only "binding description + display count
   - Default not overflowed → manual Space forces it to expand.
   - Default auto-expanded → manual Space forces it to collapse.
 - Moving the cursor to another layout returns to that layout's "auto detail" state (the manual flip is reset).
+
+---
+
+## Search mode (`/` enters it)
+
+Press `/` while browsing to start filtering the list by typing:
+
+- Type letters, digits, or punctuation to build a query; the grid narrows to matching layouts as you type.
+- `Backspace` deletes the last character.
+- `Enter` commits the filter and returns to grid browsing on the filtered list (no-op if nothing matches — it stays in search mode).
+- `Esc` discards the query and returns to the full list.
 
 ---
 

@@ -18,7 +18,7 @@ title: gmux FAQ
 
 ### Variant doesn't switch when I (un)plug a monitor
 
-The engine evaluates variants only on launch / reload. Hot-plug currently requires a manual reload. Listening to `WM_DISPLAYCHANGE` for automatic re-evaluation is on the roadmap.
+gmux listens for display changes (`WM_DISPLAYCHANGE`, debounced ~500 ms): plug or unplug a monitor and it automatically re-enumerates displays and recompiles bindings, so the next trigger picks the variant matching the new layout — no manual reload needed. Windows already placed before the change aren't auto-rearranged; press the binding again, or `prefix+r`, to re-place them.
 
 ### How are two same-model monitors distinguished?
 
@@ -28,15 +28,20 @@ Conceptual detail: [User guide → Display](settings-help-en.md#1-display).
 
 ### gmux can't find my app's window — what now?
 
-Specify `[apps.<key>.window_identity]` explicitly:
+Add explicit match rules under `[apps.<key>.match]`:
 
 ```toml
 [apps.terminal]
-exe = "C:/Users/<you>/AppData/Local/Microsoft/WindowsApps/wt.exe"
-[apps.terminal.window_identity]
-class = "CASCADIA_HOSTING_WINDOW_CLASS"     # Windows Terminal's class
-title_contains = "PowerShell"                # narrow further to a specific tab
+launch.exe = "C:/Users/<you>/AppData/Local/Microsoft/WindowsApps/wt.exe"
+match.hard.class = "CASCADIA_HOSTING_WINDOW_CLASS"   # Windows Terminal's window class
+
+[[apps.terminal.match.soft]]
+kind = "title_contains"     # nudge toward a specific tab
+pattern = "PowerShell"
+weight = 50
 ```
+
+`match.hard.*` fields (`process` / `process_path` / `class` / `aumid`) are exact requirements; `[[apps.<key>.match.soft]]` entries are scored hints (`kind` = `title_contains` / `title_regex` / `class_prefix` / `process_prefix`, `weight` in −100…100).
 
 The GUI's "Add app" wizard captures live window metadata so you don't have to write it by hand.
 

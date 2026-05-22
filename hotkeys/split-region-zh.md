@@ -88,7 +88,7 @@ title: prefix+c — 区域内追加应用
 
 ## 关闭浮层后
 
-- 选中数字 / 按 Enter → 立即执行 split：原 region 沿短边切成两半，原应用留下、新应用进入新一半。
+- 选中数字 / 按 Enter → 立即执行 split：原 region 沿较长的一边切成两半（宽的 region 切成左右两半，高的 region 切成上下两半），原应用留下、新应用进入新一半。
 - 取消 / 超时 → 不修改任何 region。
 - split 完成后 selected_region 不变（指向原 region 编号）。新增的 region 编号会被引擎分配并出现在 `prefix+q` OSD 里。
 

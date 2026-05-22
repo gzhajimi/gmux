@@ -18,7 +18,7 @@ title: gmux 常见问题
 
 ### 多显示器拔插后变体不切换？
 
-引擎只在启动 / 重载时计算 variant 匹配，热插拔目前要手动重载。计划支持监听 `WM_DISPLAYCHANGE` 自动重算。
+gmux 会监听显示器变化（`WM_DISPLAYCHANGE`，去抖约 500 ms）：插拔显示器后自动重新枚举显示器并重新编译绑定，下次触发就会选中匹配新布局的 variant，无需手动重载。变化前已摆好的窗口不会自动重排，再按一次该绑定或 `prefix+r` 即可重新就位。
 
 ### 同型号两块屏怎么区分？
 
@@ -28,15 +28,20 @@ EDID 序列号自动区分。`%APPDATA%\gmux\config.toml` 里 `[[display]]` 的 
 
 ### 我的应用 gmux 找不到窗口怎么办？
 
-显式指定 `[apps.<key>.window_identity]`：
+在 `[apps.<key>.match]` 下显式写匹配规则：
 
 ```toml
 [apps.terminal]
-exe = "C:/Users/<you>/AppData/Local/Microsoft/WindowsApps/wt.exe"
-[apps.terminal.window_identity]
-class = "CASCADIA_HOSTING_WINDOW_CLASS"     # Windows Terminal 的类名
-title_contains = "PowerShell"                # 进一步缩窄到具体 tab
+launch.exe = "C:/Users/<you>/AppData/Local/Microsoft/WindowsApps/wt.exe"
+match.hard.class = "CASCADIA_HOSTING_WINDOW_CLASS"   # Windows Terminal 的窗口类名
+
+[[apps.terminal.match.soft]]
+kind = "title_contains"     # 向某个具体 tab 倾斜
+pattern = "PowerShell"
+weight = 50
 ```
+
+`match.hard.*` 字段（`process` / `process_path` / `class` / `aumid`）是精确硬条件；`[[apps.<key>.match.soft]]` 是带权重的软提示（`kind` = `title_contains` / `title_regex` / `class_prefix` / `process_prefix`，`weight` 取值 −100…100）。
 
 托盘 → 设置 → 应用 → 「+ 添加应用」会引导你抓正在跑的窗口元数据，省去手写。
 

@@ -10,7 +10,7 @@ title: prefix+q — Select a region
 
 `prefix+q` is the prerequisite step for every "region action" (`prefix+f / z / g / c / x`): it paints the region numbers onto the screen, you press a digit to select one, and subsequent region actions act on that region.
 
-> Default chord: `q` · Config key: `show_regions` · Change in Settings → Hotkeys → Region actions
+> Default chord: `q` · Config key: `show_regions` · Change in Settings → Hotkeys → Region operations
 
 ---
 

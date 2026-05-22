@@ -10,7 +10,7 @@ title: prefix+f — Cycle region windows
 
 `prefix+f` brings the **next window** of the selected region's current app into that region.
 
-> Default chord: `f` · Config key: `cycle_region` · Change in Settings → Hotkeys → Region actions
+> Default chord: `f` · Config key: `cycle_region` · Change in Settings → Hotkeys → Region operations
 
 ---
 

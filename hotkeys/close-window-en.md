@@ -10,7 +10,7 @@ title: prefix+x — Close region window
 
 `prefix+x` closes the one window currently in the selected region. It **doesn't restart the app**, it only closes that one window.
 
-> Default chord: `x` · Config key: `close_window` · Change in Settings → Hotkeys → Region actions
+> Default chord: `x` · Config key: `close_window` · Change in Settings → Hotkeys → Region operations
 
 ---
 

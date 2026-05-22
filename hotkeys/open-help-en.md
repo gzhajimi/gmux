@@ -10,7 +10,7 @@ title: prefix+? — Open help
 
 `prefix+?` opens the Settings window and jumps to the Help page (cheatsheet).
 
-> Default chord: `?` · Config key: `open_help` · Change in Settings → Hotkeys → Layout navigation
+> Default chord: `?` · Config key: `open_help` · Set via the `[actions] open_help` key in the config file (not currently listed in the Settings → Hotkeys editor)
 
 ---
 

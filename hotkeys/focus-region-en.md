@@ -10,7 +10,7 @@ title: prefix+g — Focus region
 
 `prefix+g` jumps focus to the current window of the selected region. It **does not** move / resize / fullscreen anything. It also moves the mouse cursor onto that window's title bar.
 
-> Default chord: `g` · Config key: `focus_region` · Change in Settings → Hotkeys → Region actions
+> Default chord: `g` · Config key: `focus_region` · Change in Settings → Hotkeys → Region operations
 
 ---
 

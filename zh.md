@@ -17,12 +17,11 @@ title: gmux — 声明式工作场景切换器
 
 ## 获取 gmux
 
-**⭐ [在 GitHub 给个 Star](https://github.com/gzhajimi/gmux)，首版发布时第一时间收到通知。**
+**gmux 现已上架 Microsoft Store** —— 自动更新、30 天 Premium 试用、无需账号。
 
-| 渠道 | 适合 | 状态 |
-|---|---|---|
-| **Microsoft Store** | 普通用户、付费高级功能、自动更新 | 审核中 |
-| **GitHub Release**（NSIS 安装包） | 中国区、企业封闭网、想用 git 托管配置 | 首版 release 准备中 |
+[**前往 Microsoft Store 获取 →**](https://apps.microsoft.com/detail/9MWP3799MCLH)
+
+**macOS** 版本正在准备中。[在 GitHub 给个 Star](https://github.com/gzhajimi/gmux)，上架时第一时间收到通知。
 
 **系统要求：** Windows 10 build 17763 (1809) 及以上，64 位。
 
@@ -35,7 +34,8 @@ title: gmux — 声明式工作场景切换器
 prefix = "Ctrl+M"
 
 [apps.notepad]
-exe = "C:/Windows/System32/notepad.exe"
+launch.exe = "C:/Windows/System32/notepad.exe"
+match.hard.process = "notepad.exe"
 
 [[display]]
 id = "__PRIMARY__"
@@ -50,7 +50,7 @@ description = "记事本满屏"
 [[bindings.1.variants]]
 profile = "solo"
 categories = { main = "full" }
-regions = [{ on = "main", slot = "full", app = "notepad" }]
+regions = [{ on = "main", slot = "maximize", app = "notepad" }]
 ```
 
 按 `Ctrl+M` 然后 `1` → 记事本满屏到主屏。再按一次 → 复用同一个窗口（不重启）。
@@ -85,4 +85,4 @@ gmux **不是**平铺窗口管理器（不是 yabai / komorebi），**不是** S
 
 ---
 
-gmux 程序遵循 Microsoft Store / GitHub Release 的相应许可条款。本文档站以 [MIT License](LICENSE) 发布。
+gmux 程序遵循 Microsoft Store 的相应许可条款。本文档站以 [MIT License](LICENSE) 发布。
