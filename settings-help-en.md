@@ -215,6 +215,7 @@ A "region" = one slot of one display in the current variant. For example, the to
 | [`focus_region`](hotkeys/focus-region-en.md) | `g` | `Ctrl+M g` | Jump focus + mouse to the selected region's window (does not move the window) |
 | [`split_region`](hotkeys/split-region-en.md) | `c` | `Ctrl+M c` then app picker | Add an app inside the selected region (region is split) |
 | [`close_window`](hotkeys/close-window-en.md) | `x` | `Ctrl+M x` | Close the selected region's current window (asynchronous WM_CLOSE) |
+| [`collapse_region`](hotkeys/collapse-region-en.md) | `d` | `Ctrl+M d` | Reclaim the selected region and minimize its window — does not close it, reversible |
 | [`swap_displays`](hotkeys/swap-displays-en.md) | `m` | `Ctrl+M m m` or `Ctrl+M m <digit><digit>` | Swap the entire layout between two displays |
 
 `swap_displays` has the most chord branches; the full three usages (mm / m+digit+digit / cancel) are documented in [hotkeys/swap-displays-en.md](hotkeys/swap-displays-en.md).

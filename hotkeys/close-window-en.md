@@ -12,6 +12,8 @@ title: prefix+x — Close region window
 
 > Default chord: `x` · Config key: `close_window` · Change in Settings → Hotkeys → Region operations
 
+> Related: just want to hide the window and keep the app running? Use [`prefix+d`](collapse-region-en.md) — it minimizes the window instead of closing it.
+
 ---
 
 ## Trigger flow

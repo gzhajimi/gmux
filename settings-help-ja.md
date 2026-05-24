@@ -215,6 +215,7 @@ prefix を押した後にバインディング key を入力すると対応す�
 | [`focus_region`](hotkeys/focus-region-ja.md) | `g` | `Ctrl+M g` | 選択中の region のウィンドウにフォーカス + マウスを移動（ウィンドウ位置は動かさない） |
 | [`split_region`](hotkeys/split-region-ja.md) | `c` | `Ctrl+M c` 後にアプリピッカーが表示 | 選択中の region 内に追加でアプリを入れる（リージョンが分割される） |
 | [`close_window`](hotkeys/close-window-ja.md) | `x` | `Ctrl+M x` | 選択中の region の現在のウィンドウを閉じる（非同期 WM_CLOSE） |
+| [`collapse_region`](hotkeys/collapse-region-ja.md) | `d` | `Ctrl+M d` | 選択中の region を回収し、ウィンドウを最小化——閉じない、取り消し可能 |
 | [`swap_displays`](hotkeys/swap-displays-ja.md) | `m` | `Ctrl+M m m` または `Ctrl+M m <digit><digit>` | 2 つのディスプレイのレイアウト全体を交換 |
 
 `swap_displays` は chord の中で最も分岐が多いものです。[hotkeys/swap-displays-ja.md](hotkeys/swap-displays-ja.md) に 3 種類の使い方（mm / m+数字+数字 / キャンセル）の完全な説明があります。

@@ -215,6 +215,7 @@ gmux 是一个 **prefix + chord** 系统：先按 prefix 进入「等待第二�
 | [`focus_region`](hotkeys/focus-region-zh.md) | `g` | `Ctrl+M g` | 把焦点 + 鼠标跳到已选 region 的窗口（不动窗口位置） |
 | [`split_region`](hotkeys/split-region-zh.md) | `c` | `Ctrl+M c` 然后弹应用选择器 | 在已选 region 内追加一个应用（区域被切分） |
 | [`close_window`](hotkeys/close-window-zh.md) | `x` | `Ctrl+M x` | 关闭已选 region 的当前窗口（异步 WM_CLOSE） |
+| [`collapse_region`](hotkeys/collapse-region-zh.md) | `d` | `Ctrl+M d` | 回收已选 region 并最小化其窗口——不关闭，可逆 |
 | [`swap_displays`](hotkeys/swap-displays-zh.md) | `m` | `Ctrl+M m m` 或 `Ctrl+M m <digit><digit>` | 交换两块屏的整套布局 |
 
 `swap_displays` 是 chord 中分支最多的一条，在 [hotkeys/swap-displays-zh.md](hotkeys/swap-displays-zh.md) 里有完整的三种用法（mm / m+数字+数字 / 取消）说明。

@@ -12,6 +12,8 @@ title: prefix+x — 关闭区域窗口
 
 > 默认 chord：`x` · 配置项：`close_window` · 在「设置 → 快捷键 → 区域操作」改
 
+> 相关：只想把窗口收起来、应用继续跑？用 [`prefix+d`](collapse-region-zh.md)——最小化而不是关闭。
+
 ---
 
 ## 触发流程

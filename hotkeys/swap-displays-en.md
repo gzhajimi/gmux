@@ -23,6 +23,7 @@ After `prefix+m` enters swap mode, what you press next determines which of four 
 | Press `m` again | **Quick swap (mm)** | Swap the two displays configured as quick_swap in the display profile; great for two displays you frequently flip between |
 | Digit `N1` then digit `N2` | **Explicit swap (m+digit+digit)** | Swap two displays by their explicit display numbers; needed when you have three or more displays |
 | Digit `N` then `Enter` | **Swap with default (m+digit+Enter)** | Swap the chosen display with the default display; only one number to remember |
+| Digit `N` then `o` | **Open on display (m+digit+o)** | Open the app picker on display `N` (0-based number shown on the OSD) and set it as the sticky target for future `prefix+o` presses; see [prefix+o — Open window](open-window-en.md) |
 | `Esc` / any other key / nothing | **Cancel** | Close the OSD without swapping |
 
 The "display-number OSD" (each display shows its number + resolution in the center) only appears **120 ms** after entering swap mode. This delay means users hitting `mm` quickly **never see the OSD flicker**.
@@ -95,6 +96,16 @@ Pressing `Enter` before any digit cancels swap mode (same as `Esc`); the key is 
 ### Rejection conditions
 
 Same as explicit swap, all logged with no extra toast: `N` out of range, `N` is already the default display (source == destination), no layout has been triggered, or orientation mismatch. Shares the one overall `cycle_timeout_ms` (3 s) from `prefix+m`.
+
+---
+
+## Pattern 5: open app on a specific display (`prefix+m N o`)
+
+After pressing `prefix+m` and waiting for the OSD, press a single digit `N` then press `o`. The [app picker](open-window-en.md) opens on display `N` immediately. Once you confirm an app in the picker, the window is placed on display `N`.
+
+**Sticky override**: the engine remembers display `N` as the target for all subsequent `prefix+o` presses. Plain `prefix+o` then opens on display `N` instead of the default last display. The override is cleared on restart, display hot-plug / re-enumeration, or the next `prefix+m+digit+o` sequence.
+
+**Out-of-range digit**: if `N` exceeds the number of connected displays a "no such display" toast is shown and the sequence is cancelled with no side effects.
 
 ---
 
