@@ -23,6 +23,8 @@ title: prefix+c — 区域内追加应用
 4. 按  Enter / 数字 / Shift+数字 / Esc
 ```
 
+> 一步到位：`prefix+q` → `c` → `数字`，选中该区并立即执行本操作（详见 [prefix+q](show-regions-zh.md)）。
+
 ---
 
 ## 没选中 region 怎么办

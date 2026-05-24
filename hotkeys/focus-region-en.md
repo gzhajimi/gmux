@@ -21,6 +21,8 @@ title: prefix+g — Focus region
 2. press prefix+g          ← focus + mouse jumps to region N's window
 ```
 
+> One-shot: `prefix+q` → `g` → `digit` selects that region and runs this action immediately (see [prefix+q](show-regions-en.md)).
+
 ---
 
 ## How it differs from other "jump focus" actions

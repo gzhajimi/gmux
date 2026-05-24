@@ -23,6 +23,8 @@ title: prefix+c — リージョン内にアプリを追加
 4. Enter / 数字 / Shift+数字 / Esc を押す
 ```
 
+> 一発で: `prefix+q` → `c` → `数字` でその region を選択して本操作を即実行（[prefix+q](show-regions-ja.md) 参照）。
+
 ---
 
 ## region を選択していない場合

@@ -22,6 +22,8 @@ title: prefix+z — Region temporary fullscreen
 3.        press prefix+z again    restore to the original region rectangle
 ```
 
+> One-shot: `prefix+q` → `z` → `digit` selects that region and runs this action immediately (see [prefix+q](show-regions-en.md)).
+
 ---
 
 ## Why it's called "temporary fullscreen"

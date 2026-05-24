@@ -23,6 +23,8 @@ title: prefix+x — リージョンウィンドウを閉じる
 2.        prefix+x       で当該 region の現在のウィンドウが WM_CLOSE を受け取る
 ```
 
+> 一発で: `prefix+q` → `x` → `数字` でその region を選択して本操作を即実行（[prefix+q](show-regions-ja.md) 参照）。
+
 ---
 
 ## クローズのセマンティクス

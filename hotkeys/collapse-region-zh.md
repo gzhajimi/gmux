@@ -21,6 +21,8 @@ title: prefix+d — 回收区域（最小化窗口）
 2.        按  prefix+d       该 region 的当前窗口被最小化（SW_MINIMIZE）
 ```
 
+> 一步到位：`prefix+q` → `d` → `数字`，选中该区并立即执行本操作（详见 [prefix+q](show-regions-zh.md)）。
+
 ---
 
 ## 最小化语义

@@ -28,6 +28,8 @@ The layout puts Chrome in region 0, but you have 5 Chrome windows open. The firs
 3.        press prefix+f again    the next-next window …
 ```
 
+> One-shot: `prefix+q` → `f` → `digit` selects that region and runs this action immediately (see [prefix+q](show-regions-en.md)).
+
 ---
 
 ## How candidate windows are picked

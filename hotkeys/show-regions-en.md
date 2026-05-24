@@ -8,7 +8,7 @@ title: prefix+q — Select a region
 
 [← Back to Settings Help](../settings-help-en.md)
 
-`prefix+q` is the prerequisite step for every "region action" (`prefix+f / z / g / c / x`): it paints the region numbers onto the screen, you press a digit to select one, and subsequent region actions act on that region.
+`prefix+q` is the prerequisite step for every "region action" (`prefix+f / z / g / c / x / d`): it paints the region numbers onto the screen, you press a digit to select one, and subsequent region actions act on that region. You can also, right after `prefix+q`, **press an action key then a digit** to run that action on a specific region within a single chord (see Pattern 2).
 
 > Default chord: `q` · Config key: `show_regions` · Change in Settings → Hotkeys → Region operations
 
@@ -22,7 +22,7 @@ Each region of the current layout = **one slot of one display** (top-left / righ
 
 ---
 
-## Three usage patterns
+## Four usage patterns
 
 ### Pattern 1: single-digit selection (most common)
 
@@ -42,8 +42,27 @@ After pressing the digit:
   - `prefix+g` to jump focus to that region's window
   - `prefix+c` to add a new app into that region (split)
   - `prefix+x` to close that region's current window
+  - `prefix+d` to reclaim that region (minimize its window, not close)
 
-### Pattern 2: two-digit selection (region number ≥ 10)
+### Pattern 2: select-and-act in one chord (q + action + digit)
+
+If you don't want the two-step "select first, act later" flow, then right after `prefix+q` **press the action key first, then the digit** — it selects that region and runs the action immediately, all in one chord:
+
+```
+press prefix
+press q              ← every region on screen shows its number
+press z              ← choose the action to run (here z = fullscreen)
+press 3              ← selects region 3 and fullscreens it immediately
+```
+
+- The valid action keys are the chords of the six region actions (using their **current bound keys**, so rebinding carries over):
+  `g` focus · `f` cycle windows · `z` fullscreen · `d` reclaim · `c` split · `x` close.
+- After it runs, the region **stays selected**, so a subsequent bare `prefix+f / z / g / c / x / d` keeps acting on it.
+- For numbers ≥ 10, use the second `q` for multi-digit mode the same way: `prefix` → `q` → `z` → `q` → `1` `2` → `Enter` (or submit by pausing for the timeout).
+- A digit immediately after `q` (rather than an action key) is still Pattern 1's "select only" — unchanged behavior.
+- `Esc` cancels. If the action key you press is disabled (its hotkey was cleared in Settings), it doesn't count as an action key — pressing it cancels and passes through.
+
+### Pattern 3: two-digit selection (region number ≥ 10)
 
 If the current layout has more than 10 regions (multi-display oct categories can reach 16+), use a second q to enter "multi-digit input mode":
 
@@ -64,7 +83,7 @@ Multi-digit mode details:
 
 > If you only have ≤ 10 regions, you never need multi-digit mode — single digits suffice.
 
-### Pattern 3: cancel
+### Pattern 4: cancel
 
 Ways to cancel after `prefix+q`:
 
@@ -77,7 +96,7 @@ Ways to cancel after `prefix+q`:
 
 ## How long the selection sticks
 
-- **Persists across chords**: even hours later, `prefix+f / z / g / c / x` still acts on that region.
+- **Persists across chords**: even hours later, `prefix+f / z / g / c / x / d` still acts on that region.
 - **Per-binding**: each binding has its own selected_region. Switch to another binding and back, and the original selection is preserved.
 - **Cleared by these events**:
   - After a config reload (`reload`), every selection is cleared.
@@ -88,7 +107,7 @@ Ways to cancel after `prefix+q`:
 
 ## What if I never selected a region
 
-`prefix+f / z / g / c / x` automatically use **region 0** as the target when there is no selected_region. So the most common scenarios are:
+`prefix+f / z / g / c / x / d` automatically use **region 0** as the target when there is no selected_region. So the most common scenarios are:
 
 - Single-region or single-fullscreen layouts: just `prefix+f` to cycle, `prefix+z` to fullscreen — no `prefix+q` needed.
 - Multi-region layouts: `prefix+q N` once to set it, then keep using `prefix+f` / `prefix+z` without re-selecting each time.

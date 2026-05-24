@@ -23,6 +23,8 @@ title: prefix+x — 关闭区域窗口
 2.        按  prefix+x       该 region 的当前窗口收到 WM_CLOSE
 ```
 
+> 一步到位：`prefix+q` → `x` → `数字`，选中该区并立即执行本操作（详见 [prefix+q](show-regions-zh.md)）。
+
 ---
 
 ## 关闭语义

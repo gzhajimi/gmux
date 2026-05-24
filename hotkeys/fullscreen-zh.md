@@ -22,6 +22,8 @@ title: prefix+z — 区域临时全屏
 3.        再按  prefix+z      还原到原 region 矩形
 ```
 
+> 一步到位：`prefix+q` → `z` → `数字`，选中该区并立即执行本操作（详见 [prefix+q](show-regions-zh.md)）。
+
 ---
 
 ## 为什么叫「临时全屏」

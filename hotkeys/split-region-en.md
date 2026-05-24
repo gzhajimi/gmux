@@ -23,6 +23,8 @@ title: prefix+c — Add an app to a region
 4. press Enter / digit / Shift+digit / Esc
 ```
 
+> One-shot: `prefix+q` → `c` → `digit` selects that region and runs this action immediately (see [prefix+q](show-regions-en.md)).
+
 ---
 
 ## What if no region is selected

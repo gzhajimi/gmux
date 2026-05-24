@@ -28,6 +28,8 @@ title: prefix+f — リージョンウィンドウを順次切り替え
 3.        もう一度 prefix+f で更に次 …
 ```
 
+> 一発で: `prefix+q` → `f` → `数字` でその region を選択して本操作を即実行（[prefix+q](show-regions-ja.md) 参照）。
+
 ---
 
 ## 候補ウィンドウの選び方

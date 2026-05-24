@@ -21,6 +21,8 @@ title: prefix+g — 聚焦区域
 2. 按  prefix+g          ← 焦点 + 鼠标移到 region N 的窗口
 ```
 
+> 一步到位：`prefix+q` → `g` → `数字`，选中该区并立即执行本操作（详见 [prefix+q](show-regions-zh.md)）。
+
 ---
 
 ## 它和别的「跳焦点」动作的区别

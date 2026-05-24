@@ -23,6 +23,8 @@ title: prefix+x — Close region window
 2.            press prefix+x      that region's current window receives WM_CLOSE
 ```
 
+> One-shot: `prefix+q` → `x` → `digit` selects that region and runs this action immediately (see [prefix+q](show-regions-en.md)).
+
 ---
 
 ## Close semantics

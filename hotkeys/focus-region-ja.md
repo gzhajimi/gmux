@@ -21,6 +21,8 @@ title: prefix+g — リージョンにフォーカス
 2. prefix+g          ← フォーカス + マウスを region N のウィンドウへ
 ```
 
+> 一発で: `prefix+q` → `g` → `数字` でその region を選択して本操作を即実行（[prefix+q](show-regions-ja.md) 参照）。
+
 ---
 
 ## 他の「フォーカス移動」アクションとの違い

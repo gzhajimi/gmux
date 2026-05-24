@@ -21,6 +21,8 @@ title: prefix+d — リージョンを回収（ウィンドウを最小化）
 2.        prefix+d       で当該 region の現在のウィンドウが最小化される（SW_MINIMIZE）
 ```
 
+> 一発で: `prefix+q` → `d` → `数字` でその region を選択して本操作を即実行（[prefix+q](show-regions-ja.md) 参照）。
+
 ---
 
 ## 最小化のセマンティクス

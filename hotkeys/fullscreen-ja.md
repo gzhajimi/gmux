@@ -22,6 +22,8 @@ title: prefix+z — リージョン一時フルスクリーン
 3.        もう一度 prefix+z で元の region 矩形に復元
 ```
 
+> 一発で: `prefix+q` → `z` → `数字` でその region を選択して本操作を即実行（[prefix+q](show-regions-ja.md) 参照）。
+
 ---
 
 ## なぜ「一時フルスクリーン」と呼ぶか

@@ -21,6 +21,8 @@ title: prefix+d — Collapse region (minimize window)
 2.            press prefix+d      that region's current window is minimized (SW_MINIMIZE)
 ```
 
+> One-shot: `prefix+q` → `d` → `digit` selects that region and runs this action immediately (see [prefix+q](show-regions-en.md)).
+
 ---
 
 ## Minimize semantics

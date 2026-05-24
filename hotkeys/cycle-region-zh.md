@@ -28,6 +28,8 @@ title: prefix+f — 循环切换区域窗口
 3.        再按  prefix+f      下下一个 …
 ```
 
+> 一步到位：`prefix+q` → `f` → `数字`，选中该区并立即执行本操作（详见 [prefix+q](show-regions-zh.md)）。
+
 ---
 
 ## 候选窗口怎么挑
