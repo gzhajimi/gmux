@@ -236,7 +236,7 @@ prefix を押した後にバインディング key を入力すると対応す�
 |---|---|---|
 | サイクルタイムアウト（`cycle_timeout_ms`） | 3000 ms | next/prev 連続押下時に同じサイクルセッションとみなされる最長間隔 |
 | LAYOUT LIST OSD 上限（`layout_list_timeout_ms`） | 30000 ms | `list_layouts` OSD の自動クローズ時間 |
-| REGION 番号入力タイムアウト（`region_input_timeout_ms`） | 1000 ms | `focus_region` / `swap_displays` の 2 桁数字間の最長間隔 |
+| コマンドキー後の入力タイムアウト（`input_timeout_ms`） | 3000 ms | prefix+q 領域選択 / prefix+m ディスプレイ交換で、コマンドキー後の各キーのタイムアウト；キーごとにリセット |
 | REGION OSD クリーンアップ間隔（`region_cleanup_interval_ms`） | 1000 ms | region OSD 内部クリーンアップ tick |
 | 起動並列上限（`max_parallel_launches`） | 0（自動） | 1 回のバインディング発動時に同時にコールドスタートするアプリ数; 0 = CPU により自動計算、1–32 = 固定値 |
 

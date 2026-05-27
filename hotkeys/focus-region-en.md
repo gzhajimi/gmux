@@ -49,7 +49,7 @@ title: prefix+g — Focus region
 | The window is already dead | Silent |
 | No layout currently available | Silent |
 
-> If you want to "focus region 0 no matter what", press `prefix+q 0` first, then `prefix+g`.
+> If you want to "focus region 0 no matter what", do it in one chord: `prefix+q` → `0` → `g` (selects region 0 and focuses it immediately).
 
 ---
 

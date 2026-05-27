@@ -236,7 +236,7 @@ gmux 是一个 **prefix + chord** 系统：先按 prefix 进入「等待第二�
 |---|---|---|
 | 循环超时（`cycle_timeout_ms`） | 3000 ms | next/prev 连按时被视为同一次循环会话的最长间隔 |
 | LAYOUT LIST OSD 上限（`layout_list_timeout_ms`） | 30000 ms | `list_layouts` OSD 自动关闭时间 |
-| REGION 编号输入超时（`region_input_timeout_ms`） | 1000 ms | `focus_region` / `swap_displays` 两位数字之间的最长间隔 |
+| 命令键后输入超时（`input_timeout_ms`） | 3000 ms | prefix+q 选区 / prefix+m 交换显示器时，命令键之后每个按键的超时；每按一键重置 |
 | REGION OSD 清理间隔（`region_cleanup_interval_ms`） | 1000 ms | region OSD 内部清理 tick |
 | 启动并发上限（`max_parallel_launches`） | 0（自动） | 一次绑定触发时同时冷启动多少个应用；0 = 按 CPU 自动计算，1–32 = 固定值 |
 

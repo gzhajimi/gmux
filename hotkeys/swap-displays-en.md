@@ -69,7 +69,7 @@ If you press the first digit within 120 ms (for example, `prefix m 1 2` typed qu
 
 ### Timeout for the second digit
 
-After the first digit, there's no separate timeout — the entire swap mode shares one overall timeout (default `cycle_timeout_ms = 3000 ms`). You have 3 seconds from the `prefix+m` press to finish typing both digits.
+The swap input timeout is `input_timeout_ms` (default 3000 ms) and resets on each keypress: after the first digit the timer restarts, giving you a fresh 3 seconds to press the second.
 
 ---
 
@@ -95,7 +95,7 @@ Pressing `Enter` before any digit cancels swap mode (same as `Esc`); the key is 
 
 ### Rejection conditions
 
-Same as explicit swap, all logged with no extra toast: `N` out of range, `N` is already the default display (source == destination), no layout has been triggered, or orientation mismatch. Shares the one overall `cycle_timeout_ms` (3 s) from `prefix+m`.
+Same as explicit swap, all logged with no extra toast: `N` out of range, `N` is already the default display (source == destination), no layout has been triggered, or orientation mismatch. Shares the same `input_timeout_ms` (default 3000 ms, resets on each keypress).
 
 ---
 
@@ -115,7 +115,7 @@ Ways to cancel after entering swap mode:
 
 - Press `Esc`: cancel; OSD closes.
 - Press any key that isn't a digit, m, or Esc: cancel; OSD closes; **the key is passed through to the focused window**.
-- Wait 3 seconds (`cycle_timeout_ms`): timeout cancel.
+- No keypress for the input timeout (`input_timeout_ms`, default 3000 ms): timeout cancel.
 - Foreground window switch, display hot-plug, config reload: auto-cancel.
 
 ---
@@ -147,5 +147,5 @@ Orientation mismatch is the most common rejection. To work around it: write an a
 
 | Parameter | Default | Settings location |
 |---|---|---|
-| Swap total timeout | `3000 ms` | Hotkeys → Advanced → Cycle timeout (`cycle_timeout_ms`) |
+| Swap input timeout (resets on each keypress) | `3000 ms` | Hotkeys → Advanced → Post-command input timeout (`input_timeout_ms`) |
 | OSD delay | `120 ms` | Built-in constant; not adjustable |

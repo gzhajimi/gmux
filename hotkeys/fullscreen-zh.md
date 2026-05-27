@@ -41,7 +41,7 @@ title: prefix+z — 区域临时全屏
 
 为了避免「两个 region 一起全屏」的视觉冲突，引擎对**同一块屏**强制单全屏：
 
-> 如果你在屏 A 的 region 1 已经全屏，按 `prefix+q 2` 选中屏 A 的 region 2 再按 `prefix+z`：
+> 如果你在屏 A 的 region 1 已经全屏，用一步到位 `prefix+q` → `2` → `z` 把屏 A 的 region 2 升为全屏：
 > - 引擎先把 region 1 **降回原矩形**。
 > - 然后把 region 2 升为全屏。
 

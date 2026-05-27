@@ -8,7 +8,7 @@ title: prefix+q — Select a region
 
 [← Back to Settings Help](../settings-help-en.md)
 
-`prefix+q` is the prerequisite step for every "region action" (`prefix+f / z / g / c / x / d`): it paints the region numbers onto the screen, you press a digit to select one, and subsequent region actions act on that region. You can also, right after `prefix+q`, **press an action key then a digit** to run that action on a specific region within a single chord (see Pattern 2).
+`prefix+q` is the prerequisite step for every "region action" (`prefix+f / z / g / c / x / d`): it paints the region numbers onto the screen. From there you can either **just select a region** (type the number, then `Enter`/pause), or **select-and-act in one chord** — in either order: **number first** (`q→digit→action key`, recommended) or **action first** (`q→action key→digit`, the old order, retained).
 
 > Default chord: `q` · Config key: `show_regions` · Change in Settings → Hotkeys → Region operations
 
@@ -24,72 +24,69 @@ Each region of the current layout = **one slot of one display** (top-left / righ
 
 ## Four usage patterns
 
-### Pattern 1: single-digit selection (most common)
+### Pattern 1: select a region (number first, select only)
 
 ```
 press prefix
 press q              ← every region on screen shows its number 0 1 2 3 …
-press 3              ← selects region 3; the OSD flashes once and closes
+press 3              ← type the number (multi-digit OK, e.g. 1 2 = 12)
+press Enter          ← lock in the selection (or just pause ~1 s for the input timeout)
 ```
 
-After pressing the digit:
+Notes:
 
-- The selected region **flashes-highlights** on the OSD as confirmation.
-- The OSD closes.
-- The selection is recorded as the current binding's selected_region and is used directly by:
+- **Difference from the old behavior**: pressing the number digit **no longer takes effect instantly**. Press `Enter`, or pause for the input timeout (`input_timeout_ms`, default 3000 ms), to lock it in. This is what lets an action key follow the number (see Pattern 2).
+- Multi-digit numbers are **typed straight through** — no second `q` needed; each digit resets the input timeout.
+- Once locked in, the selection is recorded as the current binding's selected_region and is used directly by:
   - `prefix+f` to cycle through the app's multiple windows in that region
   - `prefix+z` to temporarily fullscreen that region
   - `prefix+g` to jump focus to that region's window
   - `prefix+c` to add a new app into that region (split)
   - `prefix+x` to close that region's current window
   - `prefix+d` to reclaim that region (minimize its window, not close)
+- An empty buffer on `Enter`/timeout = cancel (nothing selected).
 
-### Pattern 2: select-and-act in one chord (q + action + digit)
+### Pattern 2: select-and-act, number first (recommended)
 
-If you don't want the two-step "select first, act later" flow, then right after `prefix+q` **press the action key first, then the digit** — it selects that region and runs the action immediately, all in one chord:
+If you don't want the two-step "select first, act later" flow, **type the number first, then press the action key** — it selects that region and runs the action in one chord:
 
 ```
 press prefix
 press q              ← every region on screen shows its number
-press z              ← choose the action to run (here z = fullscreen)
-press 3              ← selects region 3 and fullscreens it immediately
+press 3              ← type the number (multi-digit OK)
+press z              ← action key; runs the action on region 3 immediately (here z = fullscreen)
 ```
 
+- The action key also **terminates the number input** — pressing it submits, no `Enter` needed.
 - The valid action keys are the chords of the six region actions (using their **current bound keys**, so rebinding carries over):
   `g` focus · `f` cycle windows · `z` fullscreen · `d` reclaim · `c` split · `x` close.
 - After it runs, the region **stays selected**, so a subsequent bare `prefix+f / z / g / c / x / d` keeps acting on it.
-- For numbers ≥ 10, use the second `q` for multi-digit mode the same way: `prefix` → `q` → `z` → `q` → `1` `2` → `Enter` (or submit by pausing for the timeout).
-- A digit immediately after `q` (rather than an action key) is still Pattern 1's "select only" — unchanged behavior.
-- `Esc` cancels. If the action key you press is disabled (its hotkey was cleared in Settings), it doesn't count as an action key — pressing it cancels and passes through.
+- Multi-digit works the same way: `q → 1 → 2 → z` fullscreens region 12.
 
-### Pattern 3: two-digit selection (region number ≥ 10)
+### Pattern 3: select-and-act, action first (old order, retained)
 
-If the current layout has more than 10 regions (multi-display oct categories can reach 16+), use a second q to enter "multi-digit input mode":
+You can still use the old order: **press the action key first, then the number**.
 
 ```
 press prefix
-press q              ← OSD shows numbers
-press q              ← enter multi-digit accumulate mode (OSD doesn't change)
-press 1
-press 2              ← buffer accumulates to "12"
-press Enter          ← submit, selects region 12
+press q              ← every region on screen shows its number
+press z              ← choose the action to run first (here z = fullscreen)
+press 3              ← then the digit; selects region 3 and fullscreens it immediately
 ```
 
-Multi-digit mode details:
-
-- Each digit press **resets** the input timeout (default `region_input_timeout_ms = 1000 ms`).
-- After timeout, **Enter is auto-pressed**: the accumulated content is submitted as the number (e.g. buffer is `1`, submits region 1; empty buffer is equivalent to cancel).
-- Press `Esc` to cancel; press `Enter` to submit immediately; pressing any other key cancels and passes that key through.
-
-> If you only have ≤ 10 regions, you never need multi-digit mode — single digits suffice.
+- With the action key first, **a single digit fires instantly** (no `Enter`).
+- For numbers ≥ 10: after the action key, press a second `q` to enter the multi-digit accumulator, then submit with `Enter` or by pausing for the timeout — `prefix` → `q` → `z` → `q` → `1` `2` → `Enter`.
+- `Esc` cancels. If the action key you press is disabled (its hotkey was cleared in Settings), it doesn't count as an action key — pressing it cancels and passes through.
 
 ### Pattern 4: cancel
 
 Ways to cancel after `prefix+q`:
 
 - Press `Esc`: cancel; OSD closes.
-- Press any key that isn't a digit, q, or Esc: cancel; OSD closes; **the key is passed through to the focused window**.
-- Wait the overall timeout (default `cycle_timeout_ms = 3000 ms`): timeout cancel.
+- Press a key that isn't a digit, an action key, `q`, `Enter`, or `Esc`: cancel; OSD closes; **the key is passed through to the focused window**.
+- Wait for a timeout — two cases:
+  - **No number typed yet** (right after `prefix+q`, or action-first before the digit): the input timeout (`input_timeout_ms`, default 3000 ms) cancels.
+  - **A number already typed**: the input timeout (`input_timeout_ms`, default 3000 ms) applies, and timing out **submits the typed number as the selection** (see Pattern 1) — it does **not** cancel.
 - Foreground window switch, display hot-plug, config reload: auto-cancel.
 
 ---
@@ -110,7 +107,7 @@ Ways to cancel after `prefix+q`:
 `prefix+f / z / g / c / x / d` automatically use **region 0** as the target when there is no selected_region. So the most common scenarios are:
 
 - Single-region or single-fullscreen layouts: just `prefix+f` to cycle, `prefix+z` to fullscreen — no `prefix+q` needed.
-- Multi-region layouts: `prefix+q N` once to set it, then keep using `prefix+f` / `prefix+z` without re-selecting each time.
+- Multi-region layouts: use `prefix+q` once to select a region (type the number, then `Enter`/pause to lock it in), then keep using `prefix+f` / `prefix+z` without re-selecting each time.
 
 ---
 
@@ -128,6 +125,6 @@ If you press a digit that exceeds the current layout's region count, or the matc
 
 | Parameter | Default | Settings location |
 |---|---|---|
-| Single-q mode total timeout | `3000 ms` | Hotkeys → Advanced → Cycle timeout (`cycle_timeout_ms`) |
-| Multi-digit mode per-digit interval timeout | `1000 ms` | Hotkeys → Advanced → REGION number input timeout (`region_input_timeout_ms`) |
+| Timeout before any number is typed | `3000 ms` | Hotkeys → Advanced → Post-command input timeout (`input_timeout_ms`) |
+| Number input timeout (reset on each digit; pausing locks in the selection) | `3000 ms` | Hotkeys → Advanced → Post-command input timeout (`input_timeout_ms`) |
 | OSD internal cleanup tick | `1000 ms` | Hotkeys → Advanced → REGION OSD cleanup interval |
