@@ -14,6 +14,19 @@ title: prefix+d — Collapse region (minimize window)
 
 ---
 
+## Why this key exists
+
+`prefix+d` is purpose-built for the "split in a temporary window, reclaim it when done" workflow:
+
+1. Your layout is already arranged and you want to pull up an app for a quick look — use [`prefix+c`](split-region-en.md) to split a region and drop it into the carved-out child, without disturbing the apps you already placed.
+2. When you're done, you want to reclaim that temporary tile and hand the space back to its sibling — **but without touching the app** (it may be a browser or terminal you'll keep using).
+3. `prefix+x` is the wrong tool here — `x` is [`close_window`](close-window-en.md), which actually **closes** the window, possibly triggering a "Save?" prompt or losing data.
+4. `prefix+d` instead only **minimizes** the window (the app stays alive) while merging the child region back into its sibling, restoring the layout to its pre-split shape. Re-triggering the binding re-discovers the window via MRU and restores it — stash it when done, zero collateral damage.
+
+> In one line: `prefix+c` opens a temporary window, `prefix+d` stashes it away; reach for `prefix+x` only when you truly want to close.
+
+---
+
 ## Trigger flow
 
 ```

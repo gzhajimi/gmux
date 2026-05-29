@@ -41,7 +41,7 @@ It **does not modify the variant**:
 
 To avoid the "two regions both fullscreened" visual conflict, the engine enforces **one fullscreen per display**:
 
-> If region 1 on display A is already fullscreen and you `prefix+q 2` to select region 2 on display A and press `prefix+z`:
+> If region 1 on display A is already fullscreen and you fullscreen region 2 on display A in one chord — `prefix+q` → `2` → `z`:
 > - The engine first **demotes region 1** back to its original rectangle.
 > - Then promotes region 2 to fullscreen.
 

@@ -236,7 +236,7 @@ When the Settings window is showing, `F1` also opens the Help page directly.
 |---|---|---|
 | Cycle timeout (`cycle_timeout_ms`) | 3000 ms | Max interval for repeated next/prev presses to count as the same cycle session |
 | LAYOUT LIST OSD limit (`layout_list_timeout_ms`) | 30000 ms | Auto-close time for the `list_layouts` OSD |
-| REGION number input timeout (`region_input_timeout_ms`) | 1000 ms | Max interval between two digits in `focus_region` / `swap_displays` |
+| Post-command input timeout (`input_timeout_ms`) | 3000 ms | Per-key timeout after the command key for prefix+q region select and prefix+m display swap; resets on each key |
 | REGION OSD cleanup interval (`region_cleanup_interval_ms`) | 1000 ms | Internal cleanup tick for the region OSD |
 | Max parallel launches (`max_parallel_launches`) | 0 (auto) | How many apps to cold-start in parallel for one binding trigger; 0 = auto-compute by CPU, 1–32 = fixed |
 
