@@ -42,9 +42,3 @@ When gmux itself runs elevated, its privilege level is at least as high as any a
 - **UAC prompt** on every manual launch (autostart via Task Scheduler does not prompt)
 - **Security**: admin privileges give gmux (and any child processes it spawns) broader system access. gmux de-elevates child processes automatically, but this is not guaranteed in all scenarios
 - If none of your apps require admin privileges, there's no reason to enable this
-
-## Recommendations
-
-- **Most users** don't need this. Only consider enabling it if you frequently see the gold privilege warning
-- If only one or two apps need admin, consider changing those apps to not run elevated, rather than elevating gmux
-- If UAC prompts are annoying, you can enable only "Run as administrator on autostart" without "Run as administrator on launch" — autostart gets admin, but manual launches won't prompt
