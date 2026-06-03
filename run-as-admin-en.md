@@ -15,7 +15,7 @@ Under **Settings → System → Launch** you'll find two checkboxes:
 | **Run as administrator on launch** | Every time you open gmux, a UAC prompt appears. After you confirm, gmux runs with admin privileges |
 | **Run as administrator on autostart** | When gmux starts at login, it runs with admin privileges (via Windows Task Scheduler — no UAC prompt) |
 
-They can be toggled independently. Enabling "Run as administrator on launch" automatically enables "Run as administrator on autostart" — if you want admin for manual launches, autostart should match.
+The two are fully independent — turning one on or off never changes the other. By default, "Run as administrator on autostart" is enabled (it goes through Task Scheduler, so no UAC prompt) while "Run as administrator on launch" is disabled.
 
 ## Why Admin Privileges?
 
